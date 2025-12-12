@@ -1,0 +1,143 @@
+; ================== INITIAL VALUES ==================
+r = 0
+g = 0
+b = 0
+
+x = 50
+y = 50
+
+w = 500
+h = 500
+
+; velocity
+dx = 3
+dy = 2
+
+; square size
+size = 50
+
+; ================== MAIN LOOP ==================
+.loop
+
+; --- update position ---
+x = x + dx
+y = y + dy
+
+; --- collision with left wall ---
+if x < 0 jump .invert_dx
+
+; --- collision with right wall ---
+if x > (w - size) jump .invert_dx
+
+; --- collision with top wall ---
+if y < 0 jump .invert_dy
+
+; --- collision with bottom wall ---
+if y > (h - size) jump .invert_dy
+
+jump .after_collisions
+
+.invert_dx
+dx = 0 - dx          ; invert direction
+jump .after_collisions
+
+.invert_dy
+dy = 0 - dy          ; invert direction
+
+.after_collisions
+
+; ======= BACKGROUND COLOR BASED ON DISTANCE TO CENTER =======
+
+; center of the square
+cx = x + (size / 2)
+cy = y + (size / 2)
+
+; center of the window
+centerx = w / 2
+centery = h / 2
+
+; distance components
+distx = cx - centerx
+disty = cy - centery
+
+; abs(distx) → absx
+if distx < 0 jump .absx_neg
+absx = distx
+jump .after_absx
+.absx_neg
+absx = 0 - distx
+.after_absx
+
+; abs(disty) → absy
+if disty < 0 jump .absy_neg
+absy = disty
+jump .after_absy
+.absy_neg
+absy = 0 - disty
+.after_absy
+
+; half dimensions
+halfw = w / 2
+halfh = h / 2
+
+if halfw < 1 jump .halfw_fix
+jump .after_halfw_fix
+.halfw_fix
+halfw = 1
+.after_halfw_fix
+
+if halfh < 1 jump .halfh_fix
+jump .after_halfh_fix
+.halfh_fix
+halfh = 1
+.after_halfh_fix
+
+; normalized 0–255 distances
+normx = absx * 255 / halfw
+normy = absy * 255 / halfh
+
+; clamp normx
+if normx > 255 jump .clampx
+jump .after_clampx
+.clampx
+normx = 255
+.after_clampx
+
+; clamp normy
+if normy > 255 jump .clampy
+jump .after_clampy
+.clampy
+normy = 255
+.after_clampy
+
+; choose bigger component → distance to border
+dist = normx
+if normy > dist jump .set_dist_y
+jump .after_set_dist
+.set_dist_y
+dist = normy
+.after_set_dist
+
+; clamp dist
+if dist > 255 jump .clampdist
+jump .after_clampdist
+.clampdist
+dist = 255
+.after_clampdist
+
+; ----- COLOR FORMULA -----
+; dist: 0 (center) → 255 (borders)
+
+; r: depends on distance to border
+r = dist
+
+; g: depends on horizontal distance
+g = normx
+
+; b: depends on vertical distance
+b = normy
+
+; ============================================================
+
+sleep 16      ; ~60 FPS
+jump .loop
